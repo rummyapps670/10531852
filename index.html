@@ -81,7 +81,6 @@
       .features { font-size: 16px; }
     }
   </style>
-
 </head>
 <body>
 
@@ -110,22 +109,11 @@
     const interval = setInterval(() => {
       countdown--;
       timerElement.textContent = countdown;
-      if (countdown === 0) {
+      if (countdown <= 0) {
         clearInterval(interval);
-        gtag('event', 'auto_redirect', {
-          event_category: 'engagement',
-          event_label: '5s_redirect'
-        });
         window.location.href = downloadLink.href;
       }
     }, 1000);
-
-    downloadLink.addEventListener('click', () => {
-      gtag('event', 'manual_click', {
-        event_category: 'button',
-        event_label: 'Download and Play'
-      });
-    });
   </script>
 
 </body>
